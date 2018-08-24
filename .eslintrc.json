@@ -1,0 +1,36 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "react-native/react-native": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel",
+    "react",
+    "react-native",
+    "jsx-a11y"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "no-confusing-arrow": ["error", {"allowParens": true}],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }], // allow both '.jsx' and '.js' extensions
+    "no-mixed-operators": ["error", {"allowSamePrecedence": false}],
+    "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+    "no-extend-native": ["error", {"exceptions": ["Number", "String"]}],
+    "consistent-return": "off", // require return statements
+    "react/jsx-boolean-value": ["error", "always"],
+    "no-restricted-properties": "off", //'Math.pow' is restricted from being used. Use the exponentiation operator (**) instead
+    "react/forbid-prop-types": "off", // allow use Proptype.object, Proptype.array, Proptype.any
+    "react/no-multi-comp": ["off", { "ignoreStateless": true }], // allow 2 or more components in 1 file
+    "import/extensions": "off",
+    "max-len": ["error", { "code": 150 }],
+    "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }]
+  }
+}
