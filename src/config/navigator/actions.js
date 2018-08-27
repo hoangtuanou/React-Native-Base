@@ -1,7 +1,5 @@
-import { REDIRECT } from './actionTypes';
-
 export const redirectTo = (screen, params) => ({
-  type: REDIRECT,
+  type: 'REDIRECT',
   screen,
   params,
 });

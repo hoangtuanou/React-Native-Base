@@ -4,18 +4,25 @@ import {
   Text,
   View,
 } from 'react-native';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import Button from 'components/Button';
+import { redirectTo } from 'config/navigator/actions';
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+
 import {
   incrementCounter as increAction,
   decrementCounter as decreAction,
-} from 'actions/counter';
-import { getUser as getUserAction } from 'actions/user';
-import { redirectTo } from 'actions/navigation';
+  getUser as getUserAction,
+} from './actions';
+import reducer from './reducer';
+import saga from './saga';
 import {
-  selectCount,
-  selectUser,
+  makeSelectorCount,
+  makeSelectortUsers,
 } from './selectors';
 import styles from './styles';
 
@@ -86,9 +93,9 @@ Home.defaultProps = {
   getUser: () => {},
 };
 
-const mapStateToProps = state => ({
-  count: selectCount(state),
-  users: selectUser(state),
+const mapStateToProps = createStructuredSelector({
+  count: makeSelectorCount(),
+  users: makeSelectortUsers(),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -97,4 +104,12 @@ const mapDispatchToProps = dispatch => ({
   getUser: () => dispatch(getUserAction()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withReducer = injectReducer({ key: 'home', reducer });
+const withSaga = injectSaga({ key: 'home', saga });
+
+export default compose(
+  withReducer,
+  withSaga,
+  withConnect,
+)(Home);

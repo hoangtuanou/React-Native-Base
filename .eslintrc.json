@@ -31,6 +31,7 @@
     "react/no-multi-comp": ["off", { "ignoreStateless": true }], // allow 2 or more components in 1 file
     "import/extensions": "off",
     "max-len": ["error", { "code": 150 }],
-    "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }]
+    "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }],
+    "import/prefer-default-export": "off"
   }
 }

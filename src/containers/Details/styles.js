@@ -12,4 +12,11 @@ export default StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  button: {
+    width: 50,
+    height: 20,
+    alignItems: 'center',
+    backgroundColor: '#841584',
+    marginVertical: 10,
+  },
 });

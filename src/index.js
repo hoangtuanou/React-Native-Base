@@ -6,18 +6,20 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import 'babel-polyfill';
+
+import React from 'react';
 import { Provider } from 'react-redux';
 
-import configureStore from './store';
-import AppNavigator from './config/navigations';
+import configureStore from './config/store';
+import AppNavigator from './config/navigator';
 
-export default class App extends Component {
-  render() {
-    return (
-      <Provider store={configureStore()}>
-        <AppNavigator />
-      </Provider>
-    );
-  }
-}
+const store = configureStore();
+
+const App = () => (
+  <Provider store={store}>
+    <AppNavigator />
+  </Provider>
+);
+
+export default App;
