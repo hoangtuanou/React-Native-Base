@@ -1,30 +1,41 @@
+import { AsyncStorage } from 'react-native';
+import { persistStore, autoRehydrate } from 'redux-persist-immutable';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
 import createSagaMiddleware from 'redux-saga';
+
 import { navigationMiddleware } from 'config/navigator';
 import createReducer from './reducer';
 
 const sagaMiddleware = createSagaMiddleware();
+const reducer = createReducer();
 
-export default function configureStore(initialState = {}) {
-  const middlewares = [sagaMiddleware, navigationMiddleware];
-  const enhancers = [applyMiddleware(...middlewares)];
+const initialState = {};
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  blacklist: ['nav'],
+};
 
-  const store = createStore(
-    createReducer(),
-    fromJS(initialState),
-    compose(...enhancers),
-  );
+const middlewares = [sagaMiddleware, navigationMiddleware];
+const enhancers = [applyMiddleware(...middlewares), autoRehydrate()];
 
-  store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
-  store.injectedSagas = {}; // Saga registry
+const store = createStore(
+  reducer,
+  fromJS(initialState),
+  compose(...enhancers),
+);
 
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(createReducer(store.injectedReducers));
-    });
-  }
+store.runSaga = sagaMiddleware.run;
+store.injectedReducers = {}; // Reducer registry
+store.injectedSagas = {}; // Saga registry
 
-  return store;
-}
+// if (module.hot) {
+//   module.hot.accept('./reducers', () => {
+//     store.replaceReducer(createReducer(store.injectedReducers));
+//   });
+// }
+
+window.persistor = persistStore(store, persistConfig);
+
+export default { store };

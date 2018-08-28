@@ -11,13 +11,11 @@ import 'babel-polyfill';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import configureStore from './config/store';
+import Store from './config/store';
 import AppNavigator from './config/navigator';
 
-const store = configureStore();
-
 const App = () => (
-  <Provider store={store}>
+  <Provider store={Store.store}>
     <AppNavigator />
   </Provider>
 );
