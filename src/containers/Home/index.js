@@ -4,9 +4,11 @@ import {
   Text,
   View,
 } from 'react-native';
+import RNCalendarEvents from 'react-native-calendar-events';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import moment from 'moment';
 
 import Button from 'components/Button';
 import { redirectTo } from 'config/navigator/actions';
@@ -27,6 +29,11 @@ import {
 import styles from './styles';
 
 class Home extends Component {
+  componentWillMount() {
+    RNCalendarEvents
+      .authorizeEventStore();
+  }
+
   handleIncreCounter = () => {
     const { incrementCounter } = this.props;
     incrementCounter();
@@ -40,6 +47,19 @@ class Home extends Component {
   handleFetchUser = () => {
     const { getUser } = this.props;
     getUser();
+  }
+
+  handleAddCalendarEvent = async () => {
+    const calendar = await RNCalendarEvents.findCalendars();
+    const status = await RNCalendarEvents.authorizationStatus();
+
+    if (status) {
+      await RNCalendarEvents.saveEvent('Example Event', {
+        calendarId: calendar[0].id,
+        startDate: moment(1535655600000).subtract(1, 'hours').toISOString(),
+        endDate: moment(1535655600000).toISOString(),
+      });
+    }
   }
 
   navigateToDetails = () => {
@@ -71,6 +91,11 @@ class Home extends Component {
           title="Details"
           style={styles.getUserBtn}
           handlePress={this.navigateToDetails}
+        />
+        <Button
+          title="Set Calendar Event"
+          style={styles.getUserBtn}
+          handlePress={this.handleAddCalendarEvent}
         />
       </View>
     );
