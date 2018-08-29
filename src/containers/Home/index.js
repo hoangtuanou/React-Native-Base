@@ -31,10 +31,7 @@ import styles from './styles';
 class Home extends Component {
   componentWillMount() {
     RNCalendarEvents
-      .authorizeEventStore()
-      .then((auth) => {
-        console.log(auth);
-      });
+      .authorizeEventStore();
   }
 
   handleIncreCounter = () => {
