@@ -175,7 +175,7 @@ export default class Calendar extends PureComponent {
     // Minimal possible X position value to prevent scrolling before the first day
     const minX = 0;
     // Maximum possible X position value to prevent scrolling after the last day
-    const maxX = allDaysWidth > screenWidth ? allDaysWidth - screenWidth : 0; // no scrolling if there's nowhere to scroll
+    // const maxX = allDaysWidth > screenWidth ? allDaysWidth - screenWidth : 0; // no scrolling if there's nowhere to scroll
 
     let scrollToX;
 
@@ -188,8 +188,6 @@ export default class Calendar extends PureComponent {
     // Do not scroll over the left edge
     if (scrollToX < minX) {
       scrollToX = 0;
-    } else if (scrollToX > maxX) { // Do not scroll over the right edge
-      scrollToX = maxX;
     }
 
     this.scrollView.scrollTo({ x: scrollToX });
@@ -248,7 +246,7 @@ export default class Calendar extends PureComponent {
   onScroll = (event) => {
     const { dates } = this.state;
     const { nativeEvent: { contentOffset: { x } } } = event;
-    const index = Math.round(((x + (50)) / 50)) - 1;
+    const index = Math.round(((x + (screenWidth / 2) + (50 / 2)) / 50)) - 1;
 
     const currenDateIndex = findIndex(dates, (date) => {
       const currentDateTimestamp = moment().format('x');
@@ -288,7 +286,7 @@ export default class Calendar extends PureComponent {
           <Dates
             dates={dates}
             currentDateIndex={currentDateIndex}
-            onSelectDay={this.onSelectDay}
+            // onSelectDay={this.onSelectDay}
             onRenderDay={this.onRenderDay}
           />
         </ScrollView>
@@ -306,7 +304,7 @@ Calendar.propTypes = {
 
 Calendar.defaultProps = {
   currentDate: moment(),
-  showDaysBeforeCurrent: 0,
+  showDaysBeforeCurrent: 4,
   showDaysAfterCurrent: 14,
   onSelectDate: () => {},
 };
