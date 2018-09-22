@@ -1,0 +1,5 @@
+Guide:
+- https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md#057
+Issues:
+- Warning Require cycle: react-native-safe-area
+(Resolved: https://github.com/react-community/react-native-safe-area-view/pull/41)
