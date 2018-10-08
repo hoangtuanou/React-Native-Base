@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,11 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		321E33E6F766490ABFC2E84F /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F4362272064FB493F08DA5 /* libAppCenterReactNative.a */; };
+		5B439E2EE6764C2F9051F5AB /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527E41D8F93E46AFAF5C2802 /* AppCenter-Config.plist */; };
+		43CF4D3C6A13411DBFB6309C /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E854562BE4D542B59CB2E09A /* libAppCenterReactNativeAnalytics.a */; };
+		7E7AEDF17FCC4911A2840C9C /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6991B612767F48508087BB82 /* libAppCenterReactNativeCrashes.a */; };
+		58B49B1B27974F38BBFE6E5A /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0393E3A4B89F474BB1252B9A /* libRNCalendarEvents.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +347,15 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		794DBD67D32747509D7C484C /* AppCenterReactNative.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNative.xcodeproj"; path = "../node_modules/appcenter/ios/AppCenterReactNative.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C5F4362272064FB493F08DA5 /* libAppCenterReactNative.a */ = {isa = PBXFileReference; name = "libAppCenterReactNative.a"; path = "libAppCenterReactNative.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		527E41D8F93E46AFAF5C2802 /* AppCenter-Config.plist */ = {isa = PBXFileReference; name = "AppCenter-Config.plist"; path = "RNbase/AppCenter-Config.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
+		8603D48479784563BCC57F5D /* AppCenterReactNativeAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativeAnalytics.xcodeproj"; path = "../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E854562BE4D542B59CB2E09A /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeAnalytics.a"; path = "libAppCenterReactNativeAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5B2F39C1C53B4E099A9C293A /* AppCenterReactNativeCrashes.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativeCrashes.xcodeproj"; path = "../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		6991B612767F48508087BB82 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeCrashes.a"; path = "libAppCenterReactNativeCrashes.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BD37AC4BF1884ABDA9ED56DA /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; name = "RNCalendarEvents.xcodeproj"; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0393E3A4B89F474BB1252B9A /* libRNCalendarEvents.a */ = {isa = PBXFileReference; name = "libRNCalendarEvents.a"; path = "libRNCalendarEvents.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +384,10 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				321E33E6F766490ABFC2E84F /* libAppCenterReactNative.a in Frameworks */,
+				43CF4D3C6A13411DBFB6309C /* libAppCenterReactNativeAnalytics.a in Frameworks */,
+				7E7AEDF17FCC4911A2840C9C /* libAppCenterReactNativeCrashes.a in Frameworks */,
+				58B49B1B27974F38BBFE6E5A /* libRNCalendarEvents.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +574,10 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				794DBD67D32747509D7C484C /* AppCenterReactNative.xcodeproj */,
+				8603D48479784563BCC57F5D /* AppCenterReactNativeAnalytics.xcodeproj */,
+				5B2F39C1C53B4E099A9C293A /* AppCenterReactNativeCrashes.xcodeproj */,
+				BD37AC4BF1884ABDA9ED56DA /* RNCalendarEvents.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -578,6 +599,7 @@
 				00E356EF1AD99517003FC87E /* RNbaseTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				527E41D8F93E46AFAF5C2802 /* AppCenter-Config.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -685,7 +707,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1050,6 +1072,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				5B439E2EE6764C2F9051F5AB /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1204,20 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNbase.app/RNbase";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Debug;
 		};
@@ -1198,6 +1235,20 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNbase.app/RNbase";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Release;
 		};
@@ -1216,6 +1267,13 @@
 				);
 				PRODUCT_NAME = RNbase;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Debug;
 		};
@@ -1233,6 +1291,13 @@
 				);
 				PRODUCT_NAME = RNbase;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Release;
 		};
@@ -1259,6 +1324,20 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Debug;
 		};
@@ -1285,6 +1364,20 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Release;
 		};
@@ -1310,6 +1403,20 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNbase-tvOS.app/RNbase-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Debug;
 		};
@@ -1335,6 +1442,20 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNbase-tvOS.app/RNbase-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
+					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
+					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
+				);
 			};
 			name = Release;
 		};
