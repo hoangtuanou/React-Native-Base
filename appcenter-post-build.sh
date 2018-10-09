@@ -2,5 +2,5 @@
 
 if [ "$APPCENTER_BRANCH" != "master" ];
 then
-    python3 config/deploy/update_config.py
+    sh config/deploy/mattermost_notification.sh
 fi
