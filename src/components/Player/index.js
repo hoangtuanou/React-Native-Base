@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Text,
@@ -7,8 +8,6 @@ import {
 import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
 
 import Button from 'components/Button';
-import playlistData from 'constants/playerData';
-import assets from 'constants/assets';
 
 import styles from './styles';
 
@@ -38,45 +37,30 @@ class Player extends Component {
   }
 
   componentDidMount() {
-    TrackPlayer.setupPlayer().then(() => {
-      TrackPlayer.updateOptions({
-        maxArtworkSize: 400,
-        // An array of media controls capabilities
-        // Can contain CAPABILITY_PLAY, CAPABILITY_PAUSE, CAPABILITY_STOP, CAPABILITY_SEEK_TO,
-        // CAPABILITY_SKIP_TO_NEXT, CAPABILITY_SKIP_TO_PREVIOUS, CAPABILITY_SET_RATING
-        capabilities: [
-          TrackPlayer.CAPABILITY_PLAY,
-          TrackPlayer.CAPABILITY_PAUSE,
-          TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-          TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-          TrackPlayer.CAPABILITY_SEEK_TO,
-        ],
-        // playIcon: require('./play-icon.png'),
-        // pauseIcon: require('./pause-icon.png'),
-        // stopIcon: require('./stop-icon.png'),
-        // previousIcon: require('./previous-icon.png'),
-        // nextIcon: require('./next-icon.png'),
-        icon: assets.icon.flower,
-        color: 0xfa3843,
-      });
-    });
+    this.handlePlay();
   }
 
-  handleAddPlayList = async () => {
-    const queue = await TrackPlayer.getQueue();
-    if (!queue.length) {
-      await TrackPlayer.add(playlistData);
+  componentWillReceiveProps(nextprops) {
+    const { trackList } = this.props;
+    const { trackList: nextTrackList } = nextprops;
+
+    if (trackList[0].id !== nextTrackList[0].id) {
+      this.handlePlay(true);
     }
   }
 
-  handlePlay = async () => {
+  handlePlay = async (hasPlay = false) => {
+    const { trackList } = this.props;
     const statePlayer = await TrackPlayer.getState();
     let stateTrack = '';
 
     if (statePlayer === TrackPlayer.STATE_NONE
       || statePlayer === TrackPlayer.STATE_PAUSED
-      || statePlayer === TrackPlayer.STATE_STOPPED
-      || statePlayer === TrackPlayer.STATE_BUFFERING) {
+      || statePlayer === TrackPlayer.STATE_STOPPED || hasPlay) {
+      const queue = await TrackPlayer.getQueue();
+      if (!queue.length) {
+        await TrackPlayer.add(trackList);
+      }
       TrackPlayer.play();
       stateTrack = 'playing';
     } else {
@@ -87,12 +71,6 @@ class Player extends Component {
     Alert.alert(
       'Alert Title',
       `${statePlayer}`,
-      [
-        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-        { text: 'OK', onPress: () => console.log('OK Pressed') },
-      ],
-      { cancelable: false },
     );
 
     this.setState({ stateTrack });
@@ -121,11 +99,6 @@ class Player extends Component {
           handlePress={this.handleNext}
         />
         <Button
-          title="Add PlayList"
-          style={styles.getUserBtn}
-          handlePress={this.handleAddPlayList}
-        />
-        <Button
           title="Reset"
           style={styles.getUserBtn}
           handlePress={this.handleReset}
@@ -136,5 +109,9 @@ class Player extends Component {
     );
   }
 }
+
+Player.propTypes = {
+  trackList: PropTypes.array.isRequired,
+};
 
 export default Player;

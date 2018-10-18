@@ -1,9 +1,8 @@
-
+import { Alert } from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 
-const playerHandler = async (data) => {
+const eventHandler = async (store, data) => {
   // Handles the player event
-  console.log('HANDLER:', data);
 
   switch (data.type) {
     case 'remote-play':
@@ -18,9 +17,14 @@ const playerHandler = async (data) => {
     case 'remote-previous':
       TrackPlayer.skipToPrevious();
       break;
+    case 'playback-error':
+      Alert.alert('An error ocurred', data.error);
+      break;
     default:
       break;
   }
 };
+
+const playerHandler = store => eventHandler.bind(null, store);
 
 export default playerHandler;

@@ -3,13 +3,13 @@ import {
   createDrawerNavigator,
 } from 'react-navigation';
 import HomePage from 'containers/Home';
-import DetailScreen from 'containers/Details';
+import TrackList from 'containers/TrackList';
 
 // import tabNavigatior from './tabNavigator';
 
 const stackNavigation = createStackNavigator({
   home: { screen: HomePage },
-  details: { screen: DetailScreen },
+  trackList: { screen: TrackList },
   // Tab: { screen: tabNavigatior },
 }, {
   headerMode: 'float',
