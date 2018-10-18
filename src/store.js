@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
 import createSagaMiddleware from 'redux-saga';
-import { navigationMiddleware } from 'config/navigator';
+import { navigationMiddleware } from './navigator';
 import createReducer from './reducer';
 
 const sagaMiddleware = createSagaMiddleware();
