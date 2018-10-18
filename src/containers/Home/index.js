@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Text,
   View,
+  Image,
 } from 'react-native';
 import RNCalendarEvents from 'react-native-calendar-events';
 import { compose } from 'redux';
@@ -11,9 +12,10 @@ import { createStructuredSelector } from 'reselect';
 import moment from 'moment';
 
 import Button from 'components/Button';
-import { redirectTo } from 'config/navigator/actions';
+import { redirectTo } from 'navigator/actions';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+import assets from 'constants/assets';
 
 import {
   incrementCounter as increAction,
@@ -71,6 +73,13 @@ class Home extends Component {
     const { count } = this.props;
     return (
       <View style={styles.container}>
+        <Image
+          style={{
+            width: 200,
+            height: 100,
+          }}
+          source={assets.image.jumpMat}
+        />
         <Text style={styles.welcome}>{count}</Text>
         <Button
           title="+"
