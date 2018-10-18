@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
-  Text,
   View,
-  Image,
 } from 'react-native';
-import RNCalendarEvents from 'react-native-calendar-events';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import moment from 'moment';
 
-import Button from 'components/Button';
-import { redirectTo } from 'navigator/actions';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import assets from 'constants/assets';
+import Player from 'components/Player';
 
 import {
   incrementCounter as increAction,
@@ -31,100 +24,19 @@ import {
 import styles from './styles';
 
 class Home extends Component {
-  componentWillMount() {
-    RNCalendarEvents
-      .authorizeEventStore();
-  }
-
-  handleIncreCounter = () => {
-    const { incrementCounter } = this.props;
-    incrementCounter();
-  }
-
-  handleDecreCounter = () => {
-    const { decrementCounter } = this.props;
-    decrementCounter();
-  }
-
-  handleFetchUser = () => {
-    const { getUser } = this.props;
-    getUser();
-  }
-
-  handleAddCalendarEvent = async () => {
-    const calendar = await RNCalendarEvents.findCalendars();
-    const status = await RNCalendarEvents.authorizationStatus();
-
-    if (status) {
-      await RNCalendarEvents.saveEvent('Example Event', {
-        calendarId: calendar[0].id,
-        startDate: moment(1535655600000).subtract(1, 'hours').toISOString(),
-        endDate: moment(1535655600000).toISOString(),
-      });
-    }
-  }
-
-  navigateToDetails = () => {
-    const { navigation } = this.props;
-    navigation.dispatch(redirectTo('details'));
-  }
-
   render() {
-    const { count } = this.props;
     return (
       <View style={styles.container}>
-        <Image
-          style={{
-            width: 200,
-            height: 100,
-          }}
-          source={assets.image.jumpMat}
-        />
-        <Text style={styles.welcome}>{count}</Text>
-        <Button
-          title="+"
-          style={styles.button}
-          handlePress={this.handleIncreCounter}
-        />
-        <Button
-          title="-"
-          style={styles.button}
-          handlePress={this.handleDecreCounter}
-        />
-        <Button
-          title="Get User"
-          style={styles.getUserBtn}
-          handlePress={this.handleFetchUser}
-        />
-        <Button
-          title="Details"
-          style={styles.getUserBtn}
-          handlePress={this.navigateToDetails}
-        />
-        <Button
-          title="Set Calendar Event"
-          style={styles.getUserBtn}
-          handlePress={this.handleAddCalendarEvent}
-        />
+        <Player />
       </View>
     );
   }
 }
 
 Home.propTypes = {
-  count: PropTypes.number,
-  navigation: PropTypes.object,
-  incrementCounter: PropTypes.func,
-  decrementCounter: PropTypes.func,
-  getUser: PropTypes.func,
 };
 
 Home.defaultProps = {
-  count: 0,
-  navigation: {},
-  incrementCounter: () => {},
-  decrementCounter: () => {},
-  getUser: () => {},
 };
 
 const mapStateToProps = createStructuredSelector({

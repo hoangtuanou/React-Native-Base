@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   Text,
+  ViewPropTypes,
 } from 'react-native';
 
 export default class Button extends Component {
@@ -22,7 +23,7 @@ export default class Button extends Component {
 Button.propTypes = {
   handlePress: PropTypes.func,
   title: PropTypes.string,
-  style: PropTypes.number,
+  style: ViewPropTypes.style,
 };
 
 Button.defaultProps = {
