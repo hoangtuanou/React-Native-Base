@@ -1,0 +1,1 @@
+find $APPCENTER_OUTPUT_DIRECTORY/*.ipa | xargs -I % curl --progress-bar https://upload.testfairy.com/api/upload -F api_key='e80712782468cf626e3f66fb4715f58527054e3c' -F file=@%  | tee /dev/null
